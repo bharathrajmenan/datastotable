@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* General reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 800px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #4e4e4e;
+    }
+
+    /* Input Fields */
+    div {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #4e4e4e;
+      margin-right: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    input[type="email"]:focus,
+    select:focus {
+      border-color: #6c5ce7;
+      outline: none;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    /* Button */
+    button {
+      background-color: #6c5ce7;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #5a4cd4;
+    }
+
+    /* Table Styling */
+    table {
+      width: 100%;
+      margin-top: 30px;
+      border-collapse: collapse;
+    }
+
+    table th, table td {
+      padding: 12px;
+      text-align: center;
+    }
+
+    table th {
+      background-color: #6c5ce7;
+      color: white;
+    }
+
+    table td {
+      background-color: #f9f9f9;
+      border-bottom: 1px solid #ddd;
+    }
+
+    table tr:hover td {
+      background-color: #f1f1f1;
+    }
+
+    /* Delete Button */
+    button.delete {
+      background-color: #e74c3c;
+      border-radius: 5px;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button.delete:hover {
+      background-color: #c0392b;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Add Person</h1>
+
+    <div>
+      <label for="names">Name</label>
+      <input type="text" id="names">
+    </div>
+
+    <div>
+      <label for="age">Age</label>
+      <input type="number" id="age">
+    </div>
+
+    <div>
+      <label>Gender</label>
+      <input type="radio" value="MALE" name="gender" id="gen1"> Male
+      <input type="radio" value="FEMALE" name="gender" id="gen2"> Female
+    </div>
+
+    <div>
+      <label for="coursee">Course</label>
+      <select name="cour" id="coursee">
+        <option value="javascript">JavaScript</option>
+        <option value="C++">C++</option>
+        <option value="Python">Python</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="emai">Email</label>
+      <input type="email" id="emai">
+    </div>
+
+    <button onclick="cc(event)">Add</button>
+
+    <table id="tableout">
+      <thead>
+        <tr>
+          <th>NAME</th>
+          <th>AGE</th>
+          <th>GENDER</th>
+          <th>COURSE</th>
+          <th>E-MAIL</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    var nam = document.getElementById("names");
+    var ages = document.getElementById("age");
+    var gend = document.getElementsByName("gender");
+    var cor = document.getElementById("coursee");
+    var ema = document.getElementById("emai");
+    var tabl = document.getElementById("tableout").getElementsByTagName('tbody')[0];
+
+    function cc(event) {
+      var creat = tabl.insertRow();
+
+      var td1 = creat.insertCell(0);
+      var td2 = creat.insertCell(1);
+      var td3 = creat.insertCell(2);
+      var td4 = creat.insertCell(3);
+      var td5 = creat.insertCell(4);
+      var td6 = creat.insertCell(5);
+
+      var nm = nam.value;
+      var ag = ages.value;
+      var ge = "";
+      for (var i = 0; i < gend.length; i++) {
+        if (gend[i].checked) {
+          ge = gend[i].value;
+        }
+      }
+      var co = cor.value;
+      var em = ema.value;
+
+      td1.innerHTML = nm;
+      td2.innerHTML = ag;
+      td3.innerHTML = ge;
+      td4.innerHTML = co;
+      td5.innerHTML = em;
+      td6.innerHTML = "<button class='delete' onclick='del(event)'>Delete</button>";
+    }
+
+    function del(event) {
+      event.target.parentElement.parentElement.remove();
+    }
+  </script>
+</body>
+</html>
