@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Joker Style Form</title>
   <style>
     /* General reset */
     * {
@@ -14,19 +14,21 @@
 
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #f4f4f9;
-      color: #333;
+      background-color: #1d1d1d; /* Dark background for dramatic effect */
+      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      background-image: url('https://path-to-joker-background.jpg'); /* Optional background image */
+      background-size: cover;
     }
 
     .container {
-      background-color: #fff;
+      background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
       padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
       width: 100%;
       max-width: 800px;
     }
@@ -34,8 +36,11 @@
     h1 {
       text-align: center;
       margin-bottom: 20px;
-      font-size: 24px;
-      color: #4e4e4e;
+      font-size: 30px;
+      color: #9b59b6; /* Joker purple */
+      font-family: 'Comic Sans MS', cursive, sans-serif; /* Playful font */
+      text-transform: uppercase;
+      letter-spacing: 3px;
     }
 
     /* Input Fields */
@@ -45,8 +50,9 @@
 
     label {
       font-weight: bold;
-      color: #4e4e4e;
+      color: #f39c12; /* Joker yellow */
       margin-right: 10px;
+      font-size: 18px;
     }
 
     input[type="text"],
@@ -54,20 +60,22 @@
     input[type="email"],
     select {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin-top: 5px;
       font-size: 16px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      background-color: #f9f9f9;
-      transition: border-color 0.3s ease;
+      border: 2px solid #e74c3c; /* Joker red border */
+      border-radius: 10px;
+      background-color: #f39c12; /* Joker yellow background */
+      color: #fff;
+      transition: all 0.3s ease;
     }
 
     input[type="text"]:focus,
     input[type="number"]:focus,
     input[type="email"]:focus,
     select:focus {
-      border-color: #6c5ce7;
+      border-color: #9b59b6; /* Purple focus border */
+      background-color: #34495e;
       outline: none;
     }
 
@@ -77,20 +85,24 @@
 
     /* Button */
     button {
-      background-color: #6c5ce7;
+      background-color: #9b59b6; /* Joker purple */
       color: white;
-      padding: 10px 20px;
+      padding: 12px 20px;
       font-size: 16px;
       border: none;
-      border-radius: 5px;
+      border-radius: 10px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
-      margin-top: 20px;
+      transition: background-color 0.3s ease, transform 0.2s;
       width: 100%;
     }
 
     button:hover {
-      background-color: #5a4cd4;
+      background-color: #8e44ad; /* Darker purple on hover */
+      transform: scale(1.1); /* Slight scaling effect on hover */
+    }
+
+    button:active {
+      background-color: #6c3483; /* Even darker purple when clicked */
     }
 
     /* Table Styling */
@@ -103,33 +115,38 @@
     table th, table td {
       padding: 12px;
       text-align: center;
+      font-size: 18px;
     }
 
     table th {
-      background-color: #6c5ce7;
+      background-color: #9b59b6; /* Joker purple */
       color: white;
     }
 
     table td {
-      background-color: #f9f9f9;
-      border-bottom: 1px solid #ddd;
+      background-color: #34495e; /* Dark background for cells */
+      color: white;
+      border-bottom: 2px solid #f39c12; /* Joker yellow border for table cells */
     }
 
     table tr:hover td {
-      background-color: #f1f1f1;
+      background-color: #e74c3c; /* Red background on hover */
     }
 
     /* Delete Button */
     button.delete {
-      background-color: #e74c3c;
-      border-radius: 5px;
+      background-color: #e74c3c; /* Joker red */
+      border-radius: 10px;
       color: white;
       border: none;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+      padding: 8px 16px;
+      font-size: 16px;
     }
 
     button.delete:hover {
-      background-color: #c0392b;
+      background-color: #c0392b; /* Darker red on hover */
     }
 
   </style>
@@ -137,7 +154,7 @@
 
 <body>
   <div class="container">
-    <h1>Add Person</h1>
+    <h1>Joker's List</h1>
 
     <div>
       <label for="names">Name</label>
